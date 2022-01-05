@@ -1,4 +1,4 @@
-function [] = visualize(X, labels, w, b, name)
+function [] = visualize(X, labels, w, b, name, save)
 % visualize - plots every point in x, blue if labeled -1, red if labeled 1.
     x = X(:, 1).';
     y = X(:, 2).';
@@ -13,8 +13,9 @@ function [] = visualize(X, labels, w, b, name)
     miny = min(y);
     yp = miny : (maxy-miny)/10 : maxy;
     xp = -(w(2)*yp+b) / w(1);
-    plot(xp,yp);
+    plot(xp,yp,'linewidth', 3, 'Color', [255/255, 165/255, 0/255]);
     
     title(name);
+    saveas(gcf,name,'png');
 end
 
